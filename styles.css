@@ -1,0 +1,51 @@
+a {
+    text-decoration: none;
+    color: blue;
+    font: bold;
+    font-size: large;
+}
+
+.btn {
+    max-width: 100%;
+    width: 110px;
+    max-height: 100%;
+    height: 35px;
+    border-radius: 50px;
+    border: none;
+    color: blue;
+    font: bold;
+    font-size: large;
+    align-items: center;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+/* HEADER */
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    z-index: -1;
+}
+
+.pic-movie {
+    max-width: 150px;
+    max-height: 50px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 100%;
+    width: 400px;
+}
