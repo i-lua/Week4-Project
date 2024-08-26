@@ -39,7 +39,6 @@ a:hover {
 }
 
 h1 {
-    color: black;
     font-size: 50px;
 }
 
@@ -125,10 +124,10 @@ input {
 }
 
 .fa-search {
-    position: absolute;
+    position: relative;
     color: black;
     font-size: 30px !important;
-    right: 490px;
+    right: 50px;
 }
 .fa-search:hover {
     cursor: pointer;
