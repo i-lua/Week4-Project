@@ -11,6 +11,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    padding-bottom: 50px;
+}
+
 a {
     text-decoration: none;
     color: turquoise;
@@ -30,7 +34,7 @@ a:hover {
     height: 3px;
     width: 0;
     right: 0;
-    background-color: black;
+    background-color: whitesmoke;
     transition: all 300ms ease;
 }
 .underline:hover:after {
@@ -53,11 +57,11 @@ h1 {
     font: bold;
     font-size: large;
     align-items: center;
+    transition: 500ms ease-in-out;
 }
 .btn:hover {
     cursor: pointer;
-    transition: 500ms ease;
-    color: blue;
+    color: whitesmoke;
     background-color: green;
     transform: scale(1.1);
 }
@@ -105,6 +109,11 @@ h1 {
     padding-top: 50px;
 }
 
+.main-title {
+    font-style: italic;
+    -webkit-text-stroke: 1px whitesmoke;
+    color: black;
+}
 .search {
     display: flex;
     justify-content: center;
@@ -123,16 +132,18 @@ input {
     outline: none;
 }
 
-.fa-search {
+#searchBtn {
     position: relative;
     color: black;
     font-size: 30px !important;
     right: 50px;
+    background: none;
+    border: none;
 }
 .fa-search:hover {
     cursor: pointer;
     color: greenyellow;
-    transition: 500ms ease;
+    transition: 500ms ease-in-out;
 }
 
 /* BODY */
@@ -144,4 +155,32 @@ input {
 .suggestions {
     display: flex;
     justify-content: center;
+    padding-bottom: 50px;
+}
+
+.movie {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+.movie-card {
+    padding: 35px;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: center;
+    transition: 500ms ease;
+}
+.movie-card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+p {
+    opacity: 0;
+    font-weight: bolder;
+    transition: opacity 500ms ease;
+}
+.movie-card:hover p {
+    opacity: 1;
 }

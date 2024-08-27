@@ -6,7 +6,8 @@
     <title>Movies</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
-<body>
+
+    <body>
     <section id="main">
         <img class="background" src="./assests/movies.jpg">
             <div class="header">
@@ -21,28 +22,29 @@
                 </div>
             </div>
             <div class="title">
-                <h1>Search Your Movie</h1>
+                <h1 class="main-title">BEST MOVIE</h1>
                 <div class="search">
-                    <input type="text" placeholder="Search Movie"> 
-                    <i class="fa fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search Movie"> 
+                    <button id="searchBtn"><i class="fa fa-search"></i></button>
                 </div>
             </div>
     </section>
     <section id="body">
         <div class="movies">
             <div class="suggestions">
-                <h2>Suggestions</h2>
+                <h2>SUGGESTIONS</h2>
             </div>
         </div>
         <div class="movie">
             <div class="movie-card">
                 <div class="movie-card_container">
-                    <h3>Movie Picture <a href="https://website.website" target="_blank"></a></h3>
+                    <img class="poster" src="" alt="">
                     <p>Title</p>
+                    <p>Year:</p>
                 </div>
             </div>
         </div>
     </section>
     </body>
-    <script scr="index.js"></script>
+    <script src="index.js"></script>
 </html>
