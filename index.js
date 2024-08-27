@@ -23,10 +23,14 @@ function movieHTML(movie) {
 suggestions()
 
 async function main(searchTerm) {
+    showSpinner()
+
     try {
         const fullURL = `http://www.omdbapi.com/?apikey=5efc08a5&s=${encodeURIComponent(searchTerm)}`
         const response = await fetch(fullURL)
         const data = await response.json()
+
+        await new Promise(resolve => setTimeout(resolve, 500))
 
         if (data.Response === "True") {
             displayResults(data.Search)
@@ -36,6 +40,8 @@ async function main(searchTerm) {
     } catch (error) {
         movieListEl.innerHTML = `<p>Error fetching data. Please try again later.</p>`
         console.log("Fetch error", error)
+    } finally {
+        hideSpinner()
     }
 }
 
@@ -69,3 +75,27 @@ function showMovieDetails(id) {
     localStorage.setItem("id", id)
     window.location.href = `${window.location.origin}/user.html`
 }
+
+function showSpinner() {
+    document.getElementById('spinner').style.display = 'block'
+    document.getElementById('t-movie').style.display = 'none'
+}
+
+function hideSpinner() {
+    document.getElementById('spinner').style.display = 'none'
+    document.getElementById('t-movie').style.display = 'block'
+}
+
+document.querySelectorAll('.header-options a').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault()
+
+        showSpinner()
+
+        setTimeout(() => {
+            hideSpinner()
+
+            window.location.href = link.href
+        }, 500)
+    })
+})
