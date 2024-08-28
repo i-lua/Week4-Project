@@ -4,6 +4,14 @@ const movieListEl = document.querySelector(".movie")
 const searchInputEl = document.getElementById("searchInput")
 const searchButtonEl = document.getElementById("searchBtn")
 
+function openMenu() {
+    document.body.classList += " menu--open"
+}
+
+function closeMenu() {
+    document.body.classList.remove('menu--open')
+}
+
 async function suggestions(avengers) {
     const movie = await fetch("http://www.omdbapi.com/?apikey=5efc08a5&s=avengers")
     const moviesData = await movie.json()
@@ -70,11 +78,6 @@ searchInputEl.addEventListener("keypress", (event) => {
         }
     }
 })
-
-function showMovieDetails(id) {
-    localStorage.setItem("id", id)
-    window.location.href = `${window.location.origin}/user.html`
-}
 
 function showSpinner() {
     document.getElementById('spinner').style.display = 'block'
