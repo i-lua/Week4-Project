@@ -1,5 +1,3 @@
-//API: http://www.omdbapi.com/?apikey=5efc08a5&s=avengers
-//API to search: http://www.omdbapi.com/?apikey=5efc08a5&s=${searchTerm}
 const movieListEl = document.querySelector(".movie")
 const searchInputEl = document.getElementById("searchInput")
 const searchButtonEl = document.getElementById("searchBtn")
@@ -67,6 +65,7 @@ searchButtonEl.addEventListener("click", () => {
     const searchTerm = searchInputEl.value.trim()
     if (searchTerm) {
         main(searchTerm)
+        document.getElementById('searchTitle').innerHTML = `Search results for <span style="color: green;">"${searchTerm}"</span>`
     }
 })
 
@@ -75,18 +74,27 @@ searchInputEl.addEventListener("keypress", (event) => {
         const searchTerm = searchInputEl.value.trim()
         if (searchTerm) {
             main(searchTerm)
+            document.getElementById('searchTitle').innerHTML = `Search results for <span style="color: green;">"${searchTerm}"</span>`
         }
     }
 })
 
 function showSpinner() {
+    const movieContainer = document.querySelector('.movie');
+    movieContainer.style.opacity = '0'
+    movieContainer.style.pointerEvents = 'none'
+
     document.getElementById('spinner').style.display = 'block'
-    document.getElementById('t-movie').style.display = 'none'
+    document.getElementById('searchTitle').style.display = 'none'
 }
 
 function hideSpinner() {
+    const movieContainer = document.querySelector('.movie');
+    movieContainer.style.opacity = '1'
+    movieContainer.style.pointerEvents = 'auto'
+
     document.getElementById('spinner').style.display = 'none'
-    document.getElementById('t-movie').style.display = 'block'
+    document.getElementById('searchTitle').style.display = 'block'
 }
 
 document.querySelectorAll('.header-options a').forEach(link => {
@@ -100,5 +108,21 @@ document.querySelectorAll('.header-options a').forEach(link => {
 
             window.location.href = link.href
         }, 500)
+    })
+})
+
+window.addEventListener('scroll', function() {
+    const backToTopButton = document.getElementById('backToTop')
+    if (this.window.scrollY > 200) {
+        backToTopButton.classList.add('show')
+    } else {
+        backToTopButton.classList.remove('show')
+    }
+})
+
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     })
 })
