@@ -11,7 +11,7 @@ function closeMenu() {
 }
 
 async function suggestions(avengers) {
-    const movie = await fetch("http://www.omdbapi.com/?apikey=5efc08a5&s=avengers")
+    const movie = await fetch("https://www.omdbapi.com/?apikey=5efc08a5&s=avengers")
     const moviesData = await movie.json()
     movieListEl.innerHTML = moviesData.Search.slice(0,4).map(movie => movieHTML(movie)).join("")
 }
@@ -32,7 +32,7 @@ async function main(searchTerm) {
     showSpinner()
 
     try {
-        const fullURL = `http://www.omdbapi.com/?apikey=5efc08a5&s=${encodeURIComponent(searchTerm)}`
+        const fullURL = `https://www.omdbapi.com/?apikey=5efc08a5&s=${encodeURIComponent(searchTerm)}`
         const response = await fetch(fullURL)
         const data = await response.json()
 
